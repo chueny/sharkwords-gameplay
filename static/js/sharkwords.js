@@ -87,10 +87,21 @@ const resetGame = () => {
 
   createDivsForChars(word);
   generateLetterButtons();
-
+  
+  
   for (const button of document.querySelectorAll('button')) {
-    // add an event handler to handle clicking on a letter button
-    // YOUR CODE HERE
+    
+
+    button.addEventListener('click', (evt) => {
+      button.disabled = true;
+
+      const letter = evt.target.innerHTML;
+      if (isLetterInWord(letter)) {
+          handleCorrectGuess(letter);
+      }else {
+        handleWrongGuess();
+      }
+    });
   }
 
   // add an event handler to handle clicking on the Play Again button
