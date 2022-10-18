@@ -50,7 +50,16 @@ const isLetterInWord = (letter) => document.querySelector(`div.${letter}`) !== n
 // Called when `letter` is in word. Update contents of divs with `letter`.
 //
 const handleCorrectGuess = (letter) => {
-  // Replace this with your code
+    const letterDivs= document.querySelectorAll('.letter-box');
+
+    for (let letterDiv of letterDivs){
+
+      console.log("letterDiv classList", letterDiv.classList[1])
+
+      if (letter === letterDiv.classList[1]){
+        letterDiv.innerHTML = letter;
+      }
+    }
 };
 
 //
