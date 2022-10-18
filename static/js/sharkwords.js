@@ -71,7 +71,27 @@ const handleCorrectGuess = (letter) => {
 
 const handleWrongGuess = () => {
   numWrong += 1;
-  // Replace this with your code
+  // if numWrong equals 5, 
+      //disable all buttons
+      // show the hidden element (with id "play-again")
+  //otherwise increment numWrong and update the image
+  // display: ''
+
+  // update the image
+  const imageSection = document.querySelector('#shark-img');
+  console.log(imageSection.children);
+  const image = imageSection.children[0];
+  image.src = `/static/images/guess${numWrong}.png`;
+  
+
+  let buttons = document.querySelectorAll('button');
+  console.log(buttons);
+  if (numWrong === 5){
+    for (let button of buttons){
+      button.disabled = true;
+    }
+    return;
+  } 
 };
 
 //  Reset game state. Called before restarting the game.
@@ -91,7 +111,6 @@ const resetGame = () => {
   
   for (const button of document.querySelectorAll('button')) {
     
-
     button.addEventListener('click', (evt) => {
       button.disabled = true;
 
