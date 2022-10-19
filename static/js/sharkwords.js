@@ -130,4 +130,11 @@ const resetGame = () => {
 
   // add an event handler to handle clicking on the Play Again button
   // YOUR CODE HERE
+  let playAgainBtn = document.getElementById('play-again');
+    playAgainBtn.addEventListener('click', () => {
+      resetGame();
+      startGame();
+   })
+ 
+
 })();
