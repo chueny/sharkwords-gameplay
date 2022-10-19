@@ -79,16 +79,21 @@ const handleWrongGuess = () => {
 
   // update the image
   const imageSection = document.querySelector('#shark-img');
-  console.log(imageSection.children);
+  // console.log(imageSection.children);
   const image = imageSection.children[0];
   image.src = `/static/images/guess${numWrong}.png`;
   
 
   let buttons = document.querySelectorAll('button');
-  console.log(buttons);
+  let playAgain = document.getElementById('play-again');
+  // console.log("playagain", playAgain);
+
+  // console.log(buttons);
   if (numWrong === 5){
     for (let button of buttons){
+      playAgain.style.display = ' ';
       button.disabled = true;
+      playAgain.style.display = "block";
     }
     return;
   } 
